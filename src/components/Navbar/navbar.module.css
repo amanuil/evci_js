@@ -1,0 +1,110 @@
+.container {
+    width: 100%;
+    height: 5rem;
+    background-color: aquamarine;
+    padding:0 8px;
+    z-index: 9999;
+}
+.contain{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 4rem;
+}
+
+.navbar {
+    background-color: black;
+    margin: auto 0;
+    height: 3.5rem;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.navmenu {
+    padding: 12px;
+    position: relative;
+}
+.navitem {
+    position: relative;
+    border: 2px solid #555;
+    padding: 7px 10px;
+    margin-right: 5px;
+    transition: all .3s ease;
+    /* translate: transform; */
+}
+
+.navitem:hover, 
+.navitem.active{
+    background-color: aquamarine;
+    box-shadow: -2px -3px 8px 3px rgba(194, 188, 188, 0.904);
+    transform: translateY(12px);
+    
+}
+/* mobile menu style */
+.mobile_toggle {
+    /* display: none; */
+    position: relative;
+    right: var(--size-400);
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    padding: 0.5em;
+    margin-right: 13px;
+    width: 2rem;
+    aspect-ratio: 1;
+
+    background-image: url(/icon/icon-hamburger.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.mobile_toggle[aria-expanded="true"] {
+    background-image: url(/icon/icon-close.svg);
+}
+.visually_hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media screen and (max-width:760px) {
+    #icon {
+        display: block;
+    }
+
+    .navmenu{
+        flex-direction: column;
+        position: fixed;
+        width: 110px;
+        height: fit-content;
+        background-color: transparent;
+        top: 80px;
+        left:-100%;
+        align-items: center;
+        transition: all .5s ease;
+        border:  4px solid aquamarine;
+        margin-bottom: 10px;
+        border-bottom-right-radius: 20px;
+    }
+    .navitem {
+        display: block;
+        line-height: 20px;
+        width: fit-content;
+    }
+    .navitem:hover, .navitem.active {
+        transform: skewX(-12deg);
+    }
+    .navitem:not(:nth-child(1)){
+        margin-top: 13px;
+    }
+    .navitem.show{
+        left: 0;
+    }
+  }
